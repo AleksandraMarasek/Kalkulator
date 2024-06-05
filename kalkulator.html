@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        Kalkulator
+    </header>
+
+    <div class="calculator">
+        <h1>Wpisz działanie</h1>
+        <input type="text" id="equation" placeholder="Wpisz równanie, np. 2+5">
+        <button onclick="calculate()">Oblicz</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <div class="instructions">
+        <h4>+ dodawanie</h4>
+        <h4>- odejmowanie</h4>
+        <h4>* mnożenie</h4>
+        <h4>/ dzielenie</h4>
+        <h4>** potęgowanie</h4>
+    </div>
+
+    <script>
+        function calculate() {
+            const equation = document.getElementById('equation').value;
+            let result;
+            try {
+                result = eval(equation);
+                document.getElementById('result').textContent = 'Wynik: ' + result;
+            } catch (e) {
+                document.getElementById('result').textContent = 'Błąd: nieprawidłowe równanie';
+            }
+        }
+    </script>
+</body>
+
+</html>
